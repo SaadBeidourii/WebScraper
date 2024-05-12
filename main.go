@@ -39,4 +39,14 @@ func main() {
 	} else {
 		fmt.Println("Title not found")
 	}
+
+	codeCells := findCodeCells(doc)
+	if len(codeCells) > 0 {
+		fmt.Println("Code cells found:")
+		for _, cell := range codeCells {
+			fmt.Println(cell)
+		}
+	} else {
+		fmt.Println("Code cells not found")
+	}
 }
