@@ -1,6 +1,7 @@
 package main
 
 import (
+	process "WebScraper/internal"
 	"fmt"
 	"golang.org/x/net/html"
 	"net/http"
@@ -33,14 +34,14 @@ func main() {
 		return
 	}
 
-	title := findTitle(doc)
+	title := process.FindTitle(doc)
 	if title != "" {
 		fmt.Printf("Title: %s\n", title)
 	} else {
 		fmt.Println("Title not found")
 	}
 
-	codeCells := findCodeCells(doc)
+	codeCells := process.FindCodeCells(doc)
 	if len(codeCells) > 0 {
 		fmt.Println("Code cells found:")
 		for _, cell := range codeCells {
